@@ -19,8 +19,7 @@ class Building:
         return self.width_WE * self.width_NS* self.height
 
     def __repr__(self):
-        return ("Building({0}, {1}, {2}, {3}, {4})".format(str(self.south), str(self.west), str(self.width_WE),
-                                                           str(self.width_NS), str(self.height)))
+        return ("Building({0}, {1}, {2}, {3}, {4})".format(str(self.south), str(self.west), str(self.width_WE), str(self.width_NS), str(self.height)))
 
 
 if __name__ == '__main__':
