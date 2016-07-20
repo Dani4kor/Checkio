@@ -4,7 +4,7 @@ def checkpol(last_result, new_result):
             new_result = last_result
     return new_result
 
-
+# DOESNT WORK WITH SPACES
 def longest_palindromic(text):
     work_text = ""
     result = ""
