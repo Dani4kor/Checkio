@@ -1,8 +1,7 @@
 def checkio(marbles, step):
     l = len(marbles)
-    w = marbles.count('w')
-    white = float(w)            # 1.0
-    black = float(l - w)        # 2.0
+    white = float(marbles.count('w'))            # 1.0
+    black = float(l - marbles.count('w'))        # 2.0
     for i in xrange(step - 1):
         white, black = [white / l * (white - 1) + black / l * (white + 1),
                         black / l * (black - 1) + white / l * (black + 1)]
