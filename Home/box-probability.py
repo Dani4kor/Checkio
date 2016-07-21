@@ -7,7 +7,6 @@ def checkio(marbles, step):
                         black / l * (black - 1) + white / l * (black + 1)]
     return round(white / l, 2)
 
-
 # These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     assert checkio('bbw', 3) == 0.48, "1st example"
