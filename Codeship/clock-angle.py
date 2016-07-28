@@ -3,7 +3,7 @@ def clock_angle(time):
     hour, minute = float(hour), float(minute)
     if hour >= 12:
         hour -= 12
-    min_angle, hour_angle = float((360/60)*minute), float((minute/2)+(360/12)*hour)
+    min_angle, hour_angle = (360/60)*minute, (minute/2)+(360/12)*hour
     if min_angle == 0 and hour_angle == 180:
         return 180
     elif abs(min_angle-hour_angle) <= 180:
