@@ -1,6 +1,6 @@
 def checkio(capacity, number):
-    move, paint = min(capacity, number),''.join(map(str, range(number))) * 2
-    result =[]
+    move, paint = min(capacity, number), ''.join(map(str, range(number))) * 2
+    result = []
     for i in range(0, len(paint), move):
         result.append(paint[i:i + move])
     return ','.join(result)
