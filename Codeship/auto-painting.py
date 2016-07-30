@@ -1,6 +1,9 @@
 def checkio(capacity, number):
-    return ""
-
+    move, paint = min(capacity, number),''.join(map(str, range(number))) * 2
+    result =[]
+    for i in range(0, len(paint), move):
+        result.append(paint[i:i + move])
+    return ','.join(result)
 
 if __name__ == '__main__':
     #This part is using only for self-checking and not necessary for auto-testing
