@@ -25,9 +25,6 @@
 #             visited.add(vertex)
 
 
-
-
-
 def checkio(teleports_string):
     route = ['1']
     node = dict()
