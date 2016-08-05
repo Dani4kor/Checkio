@@ -1,14 +1,19 @@
-# def dfs(graph, start):
-#     visited, stack = [], [start]
-#     poop = graph
-#     while stack:
-#         vertex = stack.pop()
-#         if vertex not in visited:
-#             visited.append(vertex)
-#             for x in graph[vertex]:
-#                 if x not in visited:
-#                     stack.extend(x)
-#     return visited
+#
+# Nope, he is not finished
+#
+
+
+def dfs(graph, start):
+    visited, stack = [], [start]
+    poop = graph
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.append(vertex)
+            for x in graph[vertex]:
+                if x not in visited:
+                    stack.extend(x)
+    return visited
 
 
 # def bfs(graph, start):
@@ -31,24 +36,7 @@ def checkio(teleports_string):
     for i in teleports_string.split(','):
         node.setdefault(i[0], []).append(i[1]), node.setdefault(i[1], []).append(i[0])
     print node
-    pre = 0
-    while len(set(route)) != len(node) or route[-1] != '1':
-        current = route[-1]
-        open = [x for x in node[current] if x > pre]
-        if not open:
-            route.pop(-1)
-            pre = current
-            node[pre].append(route[-1])
-            node[route[-1]].append(pre)
-
-        else:
-            m = min(open)
-            route.append(m)
-            node[m].remove(current)
-            node[current].remove(m)
-            pre = 0
-
-    return ''.join(route)
+    print dfs(node, '1')
 
 
 
