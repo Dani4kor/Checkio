@@ -1,23 +1,19 @@
 def checkio(text):
-
     l = text.split(' ', )
-    print l
     for x in l:
-        if x[0] == '$':
-            splitdot,nonitem = "", ""
+        if '$' in x:
+            splitext, nonitem = "", ""
+            dot, coma = '.', ','
             c = False
             count = 0
-
-            indexitem = l.index(x)
+            indexedot = l.index(x)
             l.remove(x)
-
-            if x[-1] == ',' or x[-1] == '.':
+            if x[-1] == coma or x[-1] == dot:
                 x, nonitem = x[:-1], x[-1]
-            countdot = x.count(".")
-            countdot = countdot + x.count(",")
-
+            countdot = x.count(dot)
+            countdot = countdot + x.count(coma)
             for i in x:
-                if i == ',' or i == '.':
+                if i == coma or i == dot:
                     c = True
                     count = 0
                 if c:
@@ -25,31 +21,19 @@ def checkio(text):
             count -= 1
             if countdot < 2:
                 if count <= 2:
-                    splitdot = x.replace(',', '.')
+                    splitext = x.replace(coma, dot)
                 elif count > 2:
-                    splitdot = x.replace('.', ',')
+                    splitext = x.replace(dot, coma)
             else:
-
                 if count <= 2:
-                    splitdot = x.replace(',','.')
-
-                    splitdot = splitdot.replace('.', ',', (splitdot.count('.')-1))
-
+                    splitext = x.replace(coma, dot)
+                    splitext = splitext.replace(dot, coma, (splitext.count(dot) - 1))
                 elif count > 2:
-                    splitdot = x.replace('.', ',')
-                    print splitdot
-
-
-            if nonitem == ',' or nonitem == '.':
-                splitdot = splitdot + nonitem
-            l.insert(indexitem,splitdot)
+                    splitext = x.replace(dot, coma)
+            if nonitem == coma or nonitem == dot:
+                splitext = splitext + nonitem
+            l.insert(indexedot, splitext)
     return ' '.join(l)
-
-
-
-
-
-
 
 
 
@@ -64,3 +48,10 @@ if __name__ == '__main__':
            "Us Style = $12,345.67, Euro Style = $12,345.67", "US and European"
     assert checkio("$1.234, $5.678 and $9") == \
            "$1,234, $5,678 and $9", "Dollars without cents"
+
+    assert checkio("Clayton Kershaw $31.000.000\n"
+                   "Zack Greinke   $27.000.000\n"
+                   "Adrian Gonzalez $21.857.143\n") == \
+           ("Clayton Kershaw $31,000,000\n"
+            "Zack Greinke   $27,000,000\n"
+            "Adrian Gonzalez $21,857,143\n")
