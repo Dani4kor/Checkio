@@ -9,3 +9,7 @@ if __name__ == '__main__':
     assert verify_anagrams(u"Programming", u"Gram Ring Mop") == True, "Gram of code"
     assert verify_anagrams(u"Hello", u"Ole Oh") == False, "Hello! Ole Oh!"
     assert verify_anagrams(u"Kyoto", u"Tokyo") == True, "The global warming crisis of 3002"
+
+
+
+
