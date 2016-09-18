@@ -4,7 +4,6 @@ def checkio(time_string):
 
     print bin(int(m))[2:]
 
-
     #print bin(digit)[2:2 + width].zfill(width).replace('0', '.').replace('1', '-')
 
 
