@@ -2,7 +2,7 @@ def checkio(time_string):
 
     h,m,s = time_string.split(':', )
 
-    print bin(int(h))[2:]
+    print bin(int(m))[2:]
 
 
     #print bin(digit)[2:2 + width].zfill(width).replace('0', '.').replace('1', '-')
